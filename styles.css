@@ -183,22 +183,22 @@ figure.chart {
 }
 
 .chart .orange {
-    --color: orange;
+    --color: #eb8b43;
 }
 .chart .blue {
-    --color: blue;
+    --color: #00a6ff;
 }
 .chart .green {
-    --color: green;
+    --color: #007051;
 }
 .chart .red {
-    --color: red;
+    --color: #e22c17;
 }
 .chart .purple {
-    --color: purple;
+    --color: #534091;
 }
 .chart .light-blue {
-    --color: lightblue;
+    --color: #bfe6f3;
 }
 .chart .grey {
     --color: grey;
