@@ -33,6 +33,9 @@ body > header > nav > a {
 	color: white;
 	text-decoration: none;
 }
+body > header > nav > a:first-child {
+	padding: .5lh;
+}
 
 body > header > nav > a > img {
 	height: 3lh;
