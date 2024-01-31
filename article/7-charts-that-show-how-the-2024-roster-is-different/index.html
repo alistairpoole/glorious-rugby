@@ -1,0 +1,1090 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/styles.css">
+		<title>7 Charts that show how the 2024 OGDC roster is different | Glorious Rugby</title>
+<style>
+* {
+	font-family: "Mulish", sans-serif;
+}
+
+body {
+	width: 100vw;
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body > header {
+	width: 100%;
+	margin-bottom: 2lh;
+	display: flex;
+	justify-content: center;
+	background-color: darkred;
+	border-bottom: 5px solid blue;
+}
+
+body > header > nav {
+	width: 100%;
+	max-width: 1000px;
+	display: flex;
+}
+
+body > header > nav > a {
+	padding: 1lh;
+	color: white;
+	text-decoration: none;
+}
+
+body > header > nav > a > img {
+	height: 3lh;
+	margin-bottom: -2lh;
+}
+
+body > main {
+	width: 100%;
+	max-width: 800px;
+	padding: 0 max(.5em, 5vw);
+	flex-grow: 1;
+	line-height: 1.25lh;
+}
+
+.article-list a {
+	display: block;
+	padding: 1em 0;
+	color: black;
+	text-decoration: none;
+	border-top: 1px solid #dddddd;
+}
+
+.article-list h4 {
+	margin: 0;
+	font-size: 1.5em;
+}
+
+.article-details {
+	font-weight: bold;
+	color: grey;
+}
+
+/*.article-details {
+	display: block;
+	margin-bottom: 5lh;
+}
+
+.article-details dt {
+    float: left;
+    clear: inline-start;
+}
+
+.article-details dd {
+    float: left;
+	margin: 0 0 0 .5ch;
+}
+
+.article-details + * {
+	clear: both;
+}*/
+
+figure.chart {
+    margin: 1lh 0;
+    padding: .5em;
+    display: grid;
+    grid-template-areas:
+        'title title'
+        'yaxis chart'
+        'empty xaxis'
+        'legend legend';
+    grid-template-columns: auto 1fr;
+}
+
+.chart h3 {
+    grid-area: title;
+    margin-top: 0;
+}
+
+.chart .y-axis {
+    grid-area: yaxis;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: max-content;
+}
+
+.y-axis span {
+    font-size: 1.1em;
+    padding: .5lh .25em;
+}
+
+.chart-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.chart-area .lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display:  flex;
+    justify-content: space-between;
+	flex-flow: row wrap;
+}
+
+.chart-area .line {
+    height: 100%;
+    border-left: 1px solid #aaa;
+}
+
+.chart-area .bars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chart-area .bar-set {
+    width: 100%;
+    height: 1.5lh;
+    display: flex;
+}
+
+.chart-area .bar {
+    width: calc( ( var(--val) / (var(--max) - var(--min)) ) * 100%);
+    background-color: var(--color);
+}
+
+.chart .x-axis {
+    grid-area: xaxis;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart .legend {
+    grid-area: legend;
+    text-align: center;
+}
+
+.legend span {
+    display: inline-block;
+}
+
+.legend span:before {
+    content: " ";
+    display: inline-block;
+    width: 1ex;
+    height: 1ex;
+    margin: 0 1ch;
+    background-color: var(--color);
+}
+
+.chart .orange {
+    --color: orange;
+}
+.chart .blue {
+    --color: blue;
+}
+.chart .green {
+    --color: green;
+}
+.chart .red {
+    --color: red;
+}
+.chart .purple {
+    --color: purple;
+}
+.chart .light-blue {
+    --color: lightblue;
+}
+
+.x-axis span {
+    width: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.vertical .lines {
+    flex-direction: column;
+}
+
+.vertical .line {
+    border-left: 0;
+    border-top: 1px solid #aaa;
+    height: 0;
+}
+
+.vertical .bars {
+    flex-direction: row;
+}
+
+.vertical .bar-set {
+    flex-direction: column-reverse;
+    height: 100%;
+}
+
+.vertical .chart-area .bar {
+    width: 80%;
+    height: calc( ( var(--val) / (var(--max) - var(--min)) ) * 100%);
+}
+
+.chart.vertical .y-axis {
+    justify-content: space-between;
+    gap: 1lh;
+    margin: -.5lh 0;
+}
+
+.vertical .y-axis span {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.chart.vertical .x-axis {
+    justify-content: space-around;
+}
+
+body > footer {
+	width: 100%;
+	text-align: center;
+	padding: 0 .5em;
+	border-top: 5px solid black;
+}
+</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/"><img src="/logo.svg"></a>
+				<a href="/">Articles</a>
+				<a href="https://pod.link/1669108651">Podcast</a>
+			</nav>
+		</header>
+		<main>
+			<h1>7 Charts that show how the 2024 OGDC roster is different</h1>
+			<p class="article-details"><strong>By Alistair Kirsch-Poole<br>Jan 30, 2024 - 6:30pm</strong></p>
+			<p>Old Glory, like most MLR teams, experiences noticable turnover every year. This year is no exception. With the 2024 roster (probably) settled, I wanted to dive into some charts that show just how this team will be different from last year.</p>
+<figure class="chart stacked-bar">
+	<h3>OGDC 2024 returning minutes by position</h3>
+	<div class="y-axis">
+		<span>Loosehead</span>
+		<span>Hooker</span>
+		<span>Tighthead</span>
+		<span>Lock</span>
+		<span>Back row</span>
+		<span>Scrumhalf</span>
+		<span>Flyhalf</span>
+		<span>Center</span>
+		<span>Back three</span>
+	</div>
+	<div class="chart-area" style="--min: 0; --max: 100">
+		<div class="lines">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="bars">
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 79.5"></div>
+				<div class="bar orange" style="--val: 20.5"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 25.2"></div>
+				<div class="bar orange" style="--val: 74.8"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 12.4"></div>
+				<div class="bar orange" style="--val: 87.6"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 80.7"></div>
+				<div class="bar orange" style="--val: 19.3"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 80.8"></div>
+				<div class="bar orange" style="--val: 19.2"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 84.2"></div>
+				<div class="bar orange" style="--val: 15.8"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 42.8"></div>
+				<div class="bar orange" style="--val: 57.2"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 36.5"></div>
+				<div class="bar orange" style="--val: 63.5"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 21.2"></div>
+				<div class="bar orange" style="--val: 78.8"></div>
+			</div>
+		</div>
+	</div>
+	<div class="x-axis">
+		<span>0%</span>
+		<span>25%</span>
+		<span>50%</span>
+		<span>75%</span>
+		<span>100%</span>
+	</div>
+	<div class="legend">
+		<span class="blue">Returning</span>
+		<span class="orange">Leaving</span>
+	</div>
+</figure>
+<!--<div style="text-align: center">
+<svg viewBox="0 0 500 525" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" style="max-width: 400px">
+	<defs></defs>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85); transform-box: fill-box; transform-origin: 50% 50%;" points="117.494 10.309 117.494 440.604" transform="matrix(-1, 0, 0, -1, -0.000016, -0.00001)"></polyline>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="212.805 448.755 213.225 10.309"></polyline>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="308.537 448.755 308.956 10.309"></polyline>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="404.269 448.446 404.688 10"></polyline>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="499.58 440.604 500 10.309"></polyline>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" x="117.494" y="10.303"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="60.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="110.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="160.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="210.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="260.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="310.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="360.303" x="117.494"></rect>
+	<rect width="382.506" height="25" style="fill: rgb(193, 108, 35);" y="410.303" x="117.494"></rect>
+	<rect width="382.506" height="30" style="fill: rgb(247, 148, 64);" y="410.303" x="117.494"></rect>
+	<rect width="304.093" height="30" style="fill: rgb(30, 130, 209);" x="117.494" y="10.303"></rect>
+	<rect width="96.392" height="30" style="fill: rgb(30, 130, 209);" y="60.303" x="117.494"></rect>
+	<rect width="47.431" height="30" style="fill: rgb(30, 130, 209);" y="110.303" x="117.494"></rect>
+	<rect width="308.683" height="30" style="fill: rgb(30, 130, 209);" y="160.303" x="117.494"></rect>
+	<rect width="309.066" height="30" style="fill: rgb(30, 130, 209);" y="210.303" x="117.494"></rect>
+	<rect width="322.071" height="30" style="fill: rgb(30, 130, 209);" y="260.303" x="117.494"></rect>
+	<rect width="163.713" height="30" style="fill: rgb(30, 130, 209);" y="310.303" x="117.494"></rect>
+	<rect width="139.615" height="30" style="fill: rgb(30, 130, 209);" y="360.303" x="117.494"></rect>
+	<rect width="81.092" height="30" style="fill: rgb(30, 130, 209);" y="410.303" x="117.494"></rect>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.724" y="35.4">Loosehead</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.697" y="85.4">Hooker</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.697" y="135.4">Tighthead</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.34" y="185.252">Lock</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.724" y="235.252">Back row</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.299" y="289.444">Scrumhalf</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.299" y="335.252">Flyhalf</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.603" y="385.252">Center</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.724" y="435.555">Back three</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="221.215" y="466.612">25%</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="316.471" y="466.612">50%</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="412.546" y="466.612">75%</text>
+	<rect x="22.773" y="491.94" width="14.266" height="14.266" style="fill: rgb(30, 130, 209);"></rect>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; white-space: pre;" x="45.982" y="506.258">Returning</text>
+	<rect x="156.759" y="491.94" width="14.266" height="14.266" style="fill: rgb(247, 148, 64);"></rect>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; white-space: pre;" x="179.968" y="506.258">Leaving</text>
+</svg>
+</div>-->
+<p>This graph isn't too complicated, showing the percentage of minutes at each position that were played by players who will be returning in 2024. Some positions have a really high proportion of returning minutes, above 75%. Loosehead prop and scrumhalf both fall into this category, mostly due to the fact that both have key starters in Jack Iscaro and Danny Tusitala coming back. The back row also fit in this category, with just a couple of more marginal players leaving along with temporary signing Langilangi Haupeakui. Lock, though, is an interesting one. As we'll see in the next chart, there's actually ton of turnover in this position, there are two significant factors that prevent a major loss of minutes. Firstly, the main starter, Tevita Naqali, is returning. Secondly, many of the lock minutes were actually covered by returning flanker Collin Grosse, which fills in a lot of the remaining time.</p>
+<p>Other positions are seeing massive changes, with less than 25% returning minutes. With starting hooker Nic Souchon gone, there is a lot of time to fill in the hooker position despite the return of 2/3 of the players there. At tighthead prop, all the regulars from last year are gone, leaving a mere 12% of minutes returning. The back three sees a similar dropoff, with the departure of starters Peni Lasaqa, Junior Sa'u, and Marcos Young compounded by the retirement of Kurt Baker.</p>
+<p>In between these two categories are two positions that hover around the 1/3 mark for minutes returning. At flyhalf, although last year's preferred starter Gradyn Bowd returns, he actually didn't play as much as Tito Diaz Bonilla because he only seized the position late in the season before being beset with injury. At center, meanwhile, only Willie Talataina returns, but his contributions are significant enough on their own to lift the position over the 36% mark.</p>
+<p>Overall, this paints a picture of a familiar but markedly different team than last season. Returning players accounted for almost exactly 50% of the minutes last season, but as we've covered that isn't at all evenly spread.</p>
+<!--
+<div style="text-align: center">
+<svg viewBox="5.074 10 494.926 501.058" width="494.926" height="501.058" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" style="max-width: 400px">
+	<defs></defs>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85); transform-origin: 117.494px 229.378px;" points="117.494 10.309 117.494 448.446" transform="matrix(-1, 0, 5.388e-9, -1, 0.000021256424, -0.000023913477)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="172.078 449.056 172.498 10.61" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="226.661 448.446 227.079 10" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(247, 148, 64);" y="10.604" x="253.953" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(247, 148, 64);" y="60.604" x="253.953" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="81.876" height="30" style="fill: rgb(247, 148, 64);" y="110.604" x="199.37" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="109.167" height="30" style="fill: rgb(247, 148, 64);" y="160.604" x="172.078" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="81.876" height="30" style="fill: rgb(247, 148, 64);" y="210.604" x="199.37" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(247, 148, 64);" y="260.604" x="226.661" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(247, 148, 64);" y="310.604" x="253.953" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="81.876" height="30" style="fill: rgb(247, 148, 64);" y="360.604" x="199.37" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="136.459" height="30" style="fill: rgb(247, 148, 64);" y="410.604" x="144.786" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="281.246 448.446 281.665 10" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="335.41 449.056 335.829 10.61" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(27, 137, 24);" y="10.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(27, 137, 24);" y="60.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(131, 187, 231);" y="110.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(27, 137, 24);" y="160.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="389.994 448.446 390.413 10" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="444.996 448.446 445.415 10" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="163.751" height="30" style="fill: rgb(27, 137, 24);" y="210.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(27, 137, 24);" y="260.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(27, 137, 24);" y="310.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(27, 137, 24);" y="360.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(27, 137, 24);" y="410.604" x="281.245" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.724" y="35.4" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Loosehead</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.697" y="85.4" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Hooker</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.697" y="135.4" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Tighthead</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.34" y="185.252" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Lock</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.724" y="235.252" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Back row</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.299" y="289.444" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Scrumhalf</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.299" y="335.252" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Flyhalf</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.603" y="385.252" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Center</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; text-anchor: end; white-space: pre;" x="106.724" y="435.555" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Back three</text>
+	<rect x="7.773" y="491.94" width="14.266" height="14.266" style="fill: rgb(247, 148, 64);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; white-space: pre;" x="30.982" y="506.258" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Leaving</text>
+	<rect x="114.759" y="491.94" width="14.266" height="14.266" style="fill: rgb(27, 137, 24);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; white-space: pre;" x="137.968" y="506.258" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Returning</text>
+	<rect width="27.292" height="30" style="fill: rgb(131, 187, 231);" y="10.61" x="335.829" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(131, 187, 231);" y="60.604" x="335.829" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="109.167" height="30" style="fill: rgb(131, 187, 231);" y="160.604" x="308.537" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(131, 187, 231);" y="210.604" x="444.996" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="54.584" height="30" style="fill: rgb(131, 187, 231);" y="260.604" x="308.537" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(131, 187, 231);" y="310.604" x="335.829" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(131, 187, 231);" y="360.604" x="308.537" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="136.459" height="30" style="fill: rgb(131, 187, 231);" y="410.604" x="335.829" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(205, 233, 255);" y="60.604" x="363.121" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="27.292" height="30" style="fill: rgb(205, 233, 255);" y="160.604" x="417.704" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<rect width="81.876" height="30" style="fill: rgb(205, 233, 255);" y="360.604" x="335.829" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<polyline style="fill: rgb(216, 216, 216); stroke: rgb(85, 85, 85);" points="499.581 448.446 500 10" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="171.804" y="467.099" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">4</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="226.856" y="466.612" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">2</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="281.394" y="466.489" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">0</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="335.526" y="467.099" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">2</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="389.654" y="466.489" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">4</text>
+	<text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; white-space: pre;" x="445.301" y="466.489" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">6</text>
+	<rect x="239.366" y="491.94" width="14.266" height="14.266" style="fill: rgb(131, 187, 231);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; white-space: pre;" x="262.575" y="506.258" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Joining</text>
+	<rect x="334.087" y="491.94" width="14.266" height="14.266" style="fill: rgb(205, 233, 255);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)"/>
+	<text style="fill: rgb(51, 51, 51); font-family: Mulish; font-size: 20px; white-space: pre;" x="357.296" y="506.258" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 0, 0)">Training squad</text>
+</svg>
+</div>-->
+<figure class="chart stacked-bar">
+	<h3>OGDC 2024 player count by position</h3>
+	<div class="y-axis">
+		<span>Loosehead</span>
+		<span>Hooker</span>
+		<span>Tighthead</span>
+		<span>Lock</span>
+		<span>Back row</span>
+		<span>Scrumhalf</span>
+		<span>Flyhalf</span>
+		<span>Center</span>
+		<span>Back three</span>
+	</div>
+	<div class="chart-area" style="--min: -6; --max: 8">
+		<div class="lines">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="bars">
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 2"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 2"></div>
+				<div class="bar orange" style="--val: 4"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 4"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar green" style="--val: 6"></div>
+				<div class="bar blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 4"></div>
+				<div class="bar orange" style="--val: 2"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 2"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar light-blue" style="--val: 3"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 5"></div>
+				<div class="bar green" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 4"></div>
+			</div>
+		</div>
+	</div>
+	<div class="x-axis">
+		<span>-6</span>
+		<span>-4</span>
+		<span>-2</span>
+		<span>0</span>
+		<span>2</span>
+		<span>4</span>
+		<span>6</span>
+		<span>8</span>
+	</div>
+	<div class="legend">
+		<span class="orange">Leaving</span>
+		<span class="green">Returning</span>
+		<span class="blue">Joining</span>
+		<span class="light-blue">Training squad</span>
+	</div>
+</figure>
+<p>This chart shows much the same story, although with a slightly different implication. While returning minutes is a good way to get a sense of the impact of the players staying and leaving, this chart provides the literally movement in and out.</p>
+<p>One of the first key takeaways is how departures touched every position, although the biggest proportions were in the tighthead prop, lock, center, and back three positions. With the new coach Simon Cross coming in and the architect of the previous roster Marcelo Blanco leaving there were bound to be deep changes, and that what we see.</p>
+<p>It's also worth noting that the new additions are pretty evenly spread, with one or two new players per position, barring two significant exceptions: back three and lock. These two positions have seen a flood of new players to balance out the losses. However, in the roster over all there are more player departing than joining, unless you count the training squad players.</p>
+<p>A quick note on the presentation: I separated out the training squad players and put them in a lighter color, because it remains to be seen how they will be used. It's possible some of them may see some playing time, but it's not certain.</p>
+<figure class="chart stacked-bar">
+	<h3>OGDC 2024 players leaving and joining</h3>
+	<div class="y-axis">
+		<span>Leaving</span>
+		<span>Joining</span>
+	</div>
+	<div class="chart-area" style="--min: -10; --max: 15">
+		<div class="lines">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="bars">
+			<div class="bar-set">
+				<div class="bar" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 9"></div>
+				<div class="bar blue" style="--val: 12"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 2"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 2"></div>
+				<div class="bar orange" style="--val: 8"></div>
+				<div class="bar blue" style="--val: 8"></div>
+				<div class="bar purple" style="--val: 1"></div>
+				<div class="bar red" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 5"></div>
+			</div>
+		</div>
+	</div>
+	<div class="x-axis">
+		<span>-10</span>
+		<span>-5</span>
+		<span>0</span>
+		<span>5</span>
+		<span>10</span>
+		<span>15</span>
+	</div>
+	<div class="legend">
+		<span class="orange">Foreign</span>
+		<span class="green">US</span>
+		<span class="purple">Dual-qualified</span>
+		<span class="red">Canada</span>
+		<span class="light-blue">US (training squad)</span>
+	</div>
+</figure>
+<p>This chart really illustrates the scale of the incoming vs outgoing players. 9 of last year's 14 foreign players are departing, and only 8 new foreign players are being brought in to replace them. At first, things seem even more stark on the domestic side, with 14 of last year's 26 players departing but only 10 players coming in as replacements. However, if we count in the training squad players, there's actually on additional domestic player, which perfectly evens up the squad with last year's numbers.</p>
+<figure class="chart stacked-bar">
+	<h3>OGDC 2024 domestic players by position</h3>
+	<div class="y-axis">
+		<span>Loosehead</span>
+		<span>Hooker</span>
+		<span>Tighthead</span>
+		<span>Lock</span>
+		<span>Back row</span>
+		<span>Scrumhalf</span>
+		<span>Flyhalf</span>
+		<span>Center</span>
+		<span>Back three</span>
+	</div>
+	<div class="chart-area" style="--min: -6; --max: 8">
+		<div class="lines">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="bars">
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar purple" style="--val: 1"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 4"></div>
+				<div class="bar orange" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar purple" style="--val: 1"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 6"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 3"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar blue" style="--val: 3"></div>
+				<div class="bar purple" style="--val: 0"></div>
+				<div class="bar red" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+		</div>
+	</div>
+	<div class="x-axis">
+		<span>-6</span>
+		<span>-4</span>
+		<span>-2</span>
+		<span>0</span>
+		<span>2</span>
+		<span>4</span>
+		<span>6</span>
+		<span>8</span>
+	</div>
+	<div class="legend">
+		<span class="orange">Foreign</span>
+		<span class="green">US</span>
+		<span class="purple">Dual-qualified</span>
+		<span class="red">Canada</span>
+		<span class="light-blue">US (training squad)</span>
+	</div>
+</figure>
+<p>Continuing the look at foreign players vs domestic players, this chart shows their distribution across positions. Foreign players are fairly evenly spread, with only lock, back three, and hooker over represented. However, lock and back three require 2 and 3 starters respectively, which makes the numbers more reasonable. By that same logic, though, we can see that the back row has only one foreign player despite having three spots on the roster, making it one of the most heavily domestic positions for Old Glory. Only loosehead prop is more domestic, with no foreign players at all. The only positions where the foreign players outnumber the domestic players are at lock and hooker, although that disappears if you consider the training squad players.</p>
+<figure class="chart stacked-bar vertical">
+	<h3>OGDC 2024 player age distribution</h3>
+	<div class="y-axis">
+		<span>12</span>
+		<span>10</span>
+		<span>8</span>
+		<span>6</span>
+		<span>4</span>
+		<span>2</span>
+		<span>0</span>
+		<span>2</span>
+		<span>4</span>
+		<span>6</span>
+	</div>
+	<div class="chart-area" style="--min: -6; --max: 12">
+		<div class="lines">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="bars">
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar green" style="--val: 5"></div>
+				<div class="bar blue" style="--val: 4"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 4"></div>
+				<div class="bar orange" style="--val: 2"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 4"></div>
+				<div class="bar orange" style="--val: 2"></div>
+				<div class="bar green" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 2"></div>
+				<div class="bar orange" style="--val: 4"></div>
+				<div class="bar green" style="--val: 3"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 4"></div>
+				<div class="bar orange" style="--val: 2"></div>
+				<div class="bar green" style="--val: 3"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 3"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 3"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 1"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 2"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 4"></div>
+				<div class="bar orange" style="--val: 2"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 3"></div>
+				<div class="bar orange" style="--val: 3"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 6"></div>
+				<div class="bar orange" style="--val: 0"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar" style="--val: 5"></div>
+				<div class="bar orange" style="--val: 1"></div>
+				<div class="bar green" style="--val: 0"></div>
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+			</div>
+		</div>
+	</div>
+	<div class="x-axis">
+		<span>20</span>
+		<span>21</span>
+		<span>22</span>
+		<span>23</span>
+		<span>24</span>
+		<span>25</span>
+		<span>26</span>
+		<span>27</span>
+		<span>28</span>
+		<span>29</span>
+		<span>30</span>
+		<span>31</span>
+		<span>32</span>
+		<span>33</span>
+		<span>34</span>
+		<span>35</span>
+		<span>36</span>
+		<span>37</span>
+		<span>38</span>
+	</div>
+	<div class="legend">
+		<span class="orange">Leaving</span>
+		<span class="green">Returning</span>
+		<span class="blue">Joining</span>
+		<span class="light-blue">Training squad</span>
+	</div>
+</figure>
+<p>Now let's take a look at the age of the players involved at the start of the 2024 season. What's most striking off the bat here is the curtailing of the top of the age range. With the departure of older players like Api Naikatini, Thretton Palamo, and Junior Sa'u, has made players in their early thirties like Danny Tusitala and Rob Harley the oldest on the squad. This has been paralleled by significant departures of players in their mid-twenties, although that has been partially offset by new players coming in.</p>
+<p>At the same time, we've seen a large influx of players in their late twenties and early thirties. Combined wiht the previous two shifts mention, this has lead to a coallescing of the majority of the squad into the 26-32 age range, which are often the peak years of a rugby player's career.</p>
+<p>That's not the only thing on, though. With only a handful of players under 25 leaving but a lot coming in, Old Glory has quite a large contingent of u25 players, or more specifically 24-year-olds. Some of these players, like Collin Grosse, are already proven parts of the squad, but most are investments in the future.</p>
+<figure class="chart stacked-bar vertical">
+	<h3>OGDC 2024 player age distribution</h3>
+	<div class="y-axis">
+		<span>12</span>
+		<span>10</span>
+		<span>8</span>
+		<span>6</span>
+		<span>4</span>
+		<span>2</span>
+		<span>0</span>
+	</div>
+	<div class="chart-area" style="--min: 0; --max: 12">
+		<div class="lines">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="bars">
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 8"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 3"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 3"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 2"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 4"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 4"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 2"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 1"></div>
+				<div class="bar light-blue" style="--val: 1"></div>
+				<div class="bar orange" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 1"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+			<div class="bar-set">
+				<div class="bar blue" style="--val: 0"></div>
+				<div class="bar light-blue" style="--val: 0"></div>
+				<div class="bar orange" style="--val: 0"></div>
+			</div>
+		</div>
+	</div>
+	<div class="x-axis">
+		<span>20</span>
+		<span>21</span>
+		<span>22</span>
+		<span>23</span>
+		<span>24</span>
+		<span>25</span>
+		<span>26</span>
+		<span>27</span>
+		<span>28</span>
+		<span>29</span>
+		<span>30</span>
+		<span>31</span>
+		<span>32</span>
+		<span>33</span>
+		<span>34</span>
+		<span>35</span>
+		<span>36</span>
+		<span>37</span>
+		<span>38</span>
+	</div>
+	<div class="legend">
+		<span class="blue">Domestic</span>
+		<span class="light-blue">Domestic (training squad)</span>
+		<span class="orange">Leaving</span>
+	</div>
+</figure>
+<p>This sheds a little more light on demographics of the age breakdown. Specifically, it clearly shows the different in what the team expect from their foreign and domestic players. There are only a few domestic players over 28, and there is only one foreign player under the age of 28. The foreign players are going to be expected to be steady, veteran hands while the domestic players are a mixture of developing young talent and continuing experience for mid-career players.</p>
+<p>That preponderance of domestic players under 28 is significant for the national team as well. The 2027 World Cup is in three years, which means that all but a few of Old Glory's domestic players will be 32 or younger when it rolls around, in their prime and ready to contribute. The large contingent of players under 25 is interesting as those players will be no more than 32 when the US hosts the 2031 World Cup. This is really the ideal spread for a team with an eye on domestic talent development.</p>
+<p>[Where departing 2023 OGDC players are now]</p>
+<p>I'll finish up with this chart, which gives an idea of where departing players are ending up. A good number have ended up with other MLR teams: Kyle Baillie and David Beach have gone to New England, Nic Souchon is bound for San Diego, and Marcos Young was signed by Miami. There are also players who are playing rugby outside the MLR: John Lefevre went to the Raptors in Super Rugby Americas, Kyle Stewart is playing in the NPC in New Zealand, Fintan Coleman has rejoined the Munster academy, and Junior Sa'u is playing rugby league in England.</p>
+<p>The biggest single category, though, is the retirements. In line with the number of older players we saw leaving in the age distribution chart, there were four confirmed retirements (Thretton Palamo, Doug Fraser, Stan South, and Kurt Baker) plus another four likely retirements (Ramiro Herrera, Langilangi Haupeakui, Tito Diaz Bonilla, and Api Naikatini). Those likely retirements aren't confirmed, but are players who are old enough that I'm not expecting them to pop up anywhere else.</p>
+<p>The final category is players who don't appear to still be playing high-performance rugby, but who are young enough that they might not yet be done with their careers. Quentin Newcomer is the most likely to reappear somewhere, as a young, competent, US-qualified prop. Fermin Martinez may also return to rugby later, as he suffered a season-ending injury last season which could be holding him out for now. Alejo Daireaux, since he hasn't been picked up by an MLR team, may return to Argentina and play in the domestic league there.</p>
+<p>ther are two interesting cases in this category. Alex Balladares, who was drafted in 2022 and on the roster for 2023, has been playing with Young Glory recently. That puts him outside all of the other categories, so I put him here, even though he's only sort of not with the team. The other case is Owen Sheehy, who was known to be considering his post rugby-career last summer and may simply have chosen to retire early. This is a possibility for all of the players in this category, because professional rugby, especially at the MLR level, is far from lucrative. Many players each year choose to move on from pursuing professional rugby because they have other opportunities or simply no longer want to make the tradeoffs required.</p>
+
+		</main>
+		<footer>
+			<p>&copy; 2024 Alistair Kirsch-Poole</p>
+		</footer>
+	</body>
+</html>

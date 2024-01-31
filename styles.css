@@ -1,0 +1,255 @@
+* {
+	font-family: "Mulish", sans-serif;
+}
+
+body {
+	width: 100vw;
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+body > header {
+	width: 100%;
+	margin-bottom: 2lh;
+	display: flex;
+	justify-content: center;
+	background-color: darkred;
+	border-bottom: 5px solid blue;
+}
+
+body > header > nav {
+	width: 100%;
+	max-width: 1000px;
+	display: flex;
+}
+
+body > header > nav > a {
+	padding: 1lh;
+	color: white;
+	text-decoration: none;
+}
+
+body > header > nav > a > img {
+	height: 3lh;
+	margin-bottom: -2lh;
+}
+
+body > main {
+	width: 100%;
+	max-width: 800px;
+	padding: 0 max(.5em, 5vw);
+	flex-grow: 1;
+	line-height: 1.25lh;
+}
+
+.article-list a {
+	display: block;
+	padding: 1em 0;
+	color: black;
+	text-decoration: none;
+	border-top: 1px solid #dddddd;
+}
+
+.article-list h4 {
+	margin: 0;
+	font-size: 1.5em;
+}
+
+.article-details {
+	font-weight: bold;
+	color: grey;
+}
+
+/*.article-details {
+	display: block;
+	margin-bottom: 5lh;
+}
+
+.article-details dt {
+    float: left;
+    clear: inline-start;
+}
+
+.article-details dd {
+    float: left;
+	margin: 0 0 0 .5ch;
+}
+
+.article-details + * {
+	clear: both;
+}*/
+
+figure.chart {
+    margin: 1lh 0;
+    padding: .5em;
+    display: grid;
+    grid-template-areas:
+        'title title'
+        'yaxis chart'
+        'empty xaxis'
+        'legend legend';
+    grid-template-columns: auto 1fr;
+}
+
+.chart h3 {
+    grid-area: title;
+    margin-top: 0;
+}
+
+.chart .y-axis {
+    grid-area: yaxis;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: max-content;
+}
+
+.y-axis span {
+    font-size: 1.1em;
+    padding: .5lh .25em;
+}
+
+.chart-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.chart-area .lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display:  flex;
+    justify-content: space-between;
+	flex-flow: row wrap;
+}
+
+.chart-area .line {
+    height: 100%;
+    border-left: 1px solid #aaa;
+}
+
+.chart-area .bars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chart-area .bar-set {
+    width: 100%;
+    height: 1.5lh;
+    display: flex;
+}
+
+.chart-area .bar {
+    width: calc( ( var(--val) / (var(--max) - var(--min)) ) * 100%);
+    background-color: var(--color);
+}
+
+.chart .x-axis {
+    grid-area: xaxis;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart .legend {
+    grid-area: legend;
+    text-align: center;
+}
+
+.legend span {
+    display: inline-block;
+}
+
+.legend span:before {
+    content: " ";
+    display: inline-block;
+    width: 1ex;
+    height: 1ex;
+    margin: 0 1ch;
+    background-color: var(--color);
+}
+
+.chart .orange {
+    --color: orange;
+}
+.chart .blue {
+    --color: blue;
+}
+.chart .green {
+    --color: green;
+}
+.chart .red {
+    --color: red;
+}
+.chart .purple {
+    --color: purple;
+}
+.chart .light-blue {
+    --color: lightblue;
+}
+.chart .grey {
+    --color: grey;
+}
+
+.x-axis span {
+    width: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.vertical .lines {
+    flex-direction: column;
+}
+
+.vertical .line {
+    border-left: 0;
+    border-top: 1px solid #aaa;
+    height: 0;
+}
+
+.vertical .bars {
+    flex-direction: row;
+}
+
+.vertical .bar-set {
+    flex-direction: column-reverse;
+    height: 100%;
+}
+
+.vertical .chart-area .bar {
+    width: 80%;
+    height: calc( ( var(--val) / (var(--max) - var(--min)) ) * 100%);
+}
+
+.chart.vertical .y-axis {
+    justify-content: space-between;
+    gap: 1lh;
+    margin: -.5lh 0;
+}
+
+.vertical .y-axis span {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.chart.vertical .x-axis {
+    justify-content: space-around;
+}
+
+body > footer {
+	width: 100%;
+	text-align: center;
+	padding: 0 .5em;
+	margin-top: 2lh;
+	border-top: 5px solid black;
+}
