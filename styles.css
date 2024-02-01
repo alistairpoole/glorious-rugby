@@ -214,6 +214,7 @@ figure.chart {
     width: 0;
     display: flex;
     justify-content: center;
+	position: relative;
 }
 .x-axis span:before {
     content: " ";
