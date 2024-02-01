@@ -51,6 +51,10 @@ body > main {
 	box-sizing: border-box;
 }
 
+h1 {
+	line-height: 1.25em;
+}
+
 .article-list a {
 	display: block;
 	padding: 1em 0;
@@ -163,6 +167,7 @@ figure.chart {
     width: 100%;
     display: flex;
     justify-content: space-between;
+	--at: 10000px;
 }
 
 .chart .legend {
@@ -210,6 +215,25 @@ figure.chart {
     display: flex;
     justify-content: center;
 }
+.x-axis span:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 3px;
+    border-left: 1px solid #aaa;
+}
+
+.x-axis.two-lines span:nth-child(even) {
+	margin-top: clamp(0px,calc(var(--at) - min(900px,100vw)),1lh);
+	position: relative;
+}
+.x-axis.two-lines span:nth-child(even):before {
+    content: " ";
+    position: absolute;
+    top: clamp(-1lh,calc((var(--at) - min(900px,100vw)) * -1),0px);
+    height: clamp(3px,calc(var(--at) - min(900px,100vw)),1lh);
+    border-left: 1px solid #aaa;
+}
 
 .vertical .lines {
     flex-direction: column;
@@ -248,6 +272,12 @@ figure.chart {
 
 .chart.vertical .x-axis {
     justify-content: space-around;
+}
+
+ol.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    column-width: 9em;
 }
 
 body > footer {
