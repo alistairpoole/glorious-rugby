@@ -18,8 +18,8 @@ body > header {
 	margin-bottom: 2lh;
 	display: flex;
 	justify-content: center;
-	background-color: darkred;
-	border-bottom: 5px solid blue;
+	background-color: #952222;
+	border-bottom: 5px solid #12287e;
 }
 
 body > header > nav {
@@ -38,16 +38,17 @@ body > header > nav > a:first-child {
 }
 
 body > header > nav > a > img {
-	height: 3lh;
-	margin-bottom: -2lh;
+	height: 5lh;
+	margin-bottom: -3lh;
 }
 
 body > main {
 	width: 100%;
-	max-width: 800px;
-	padding: 0 max(.5em, 5vw);
+	max-width: 900px;
+	padding: 0 clamp(.5em, calc(20vw - 50px), 100px);
 	flex-grow: 1;
 	line-height: 1.25lh;
+	box-sizing: border-box;
 }
 
 .article-list a {
