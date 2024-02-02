@@ -1,3 +1,14 @@
+@font-face {
+	font-family: 'Mulish';
+	src: url('Mulish-VariableFont_wght.ttf') format('truetype');
+        font-style: normal;
+}
+@font-face {
+	font-family: 'Mulish';
+	src: url('Mulish-Italic-VariableFont_wght.ttf') format('truetype');
+	font-style: italic;
+}
+
 * {
 	font-family: "Mulish", sans-serif;
 }
@@ -66,6 +77,33 @@ h1 {
 .article-list h4 {
 	margin: 0;
 	font-size: 1.5em;
+}
+
+p.paging-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+p.paging-controls a {
+    padding: .25em 1em;
+    border: .2em solid #12287e;
+    font-weight: bold;
+    color: #12287e;
+    transition: .1s;
+}
+
+p.paging-controls a:hover {
+    background-color: #12287e;
+    color: white;
+}
+
+p.paging-controls span {
+    padding: .25em 1em;
+    border: .2em solid grey;
+    font-weight: bold;
+    color: white;
+    background-color: grey;
 }
 
 .article-details {
@@ -287,4 +325,8 @@ body > footer {
 	padding: 0 .5em;
 	margin-top: 2lh;
 	border-top: 5px solid black;
+}
+body > footer > p {
+    margin: .5em 0;
+    margin: .5lh 0;
 }
