@@ -61,21 +61,21 @@
 				<td>✔ Returning</td>
 				<td></td>
 			</tr>
-			<tr class="no-news">
+			<tr class="returning">
 				<td>LH</td>
-				<td>Joe Wrafter</td>
-				<td>⊝ No news</td>
+				<td><a href="/article/joe-wrafter-re-signed-for-2025">Joe Wrafter</a></td>
+				<td>✔ Returning</td>
 				<td></td>
 			</tr>
 		</tbody>
 		<tbody>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>TH</td>
 				<td>Steven Longwell</td>
 				<td>✔ Rumored</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>TH</td>
 				<td>Tyler Rowland</td>
 				<td>✔ Rumored</td>
@@ -107,7 +107,7 @@
 				<td>✔ Returning</td>
 				<td><a href="https://pod.link/1669108651/episode/720760f350fae70dfa17c42cc61c8722">Glorious Rugby</a></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>HO</td>
 				<td>Tristan Cole</td>
 				<td>✔ Rumored</td>
@@ -121,7 +121,7 @@
 				<td>✔ Returning</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>LO</td>
 				<td>Rob Harley</td>
 				<td>✔ Rumored</td>
@@ -145,7 +145,7 @@
 				<td>✔ Returning</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>LO</td>
 				<td>Logan Weidner</td>
 				<td>✔ Rumored</td>
@@ -153,13 +153,13 @@
 			</tr>
 		</tbody>
 		<tbody>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>FL</td>
 				<td>Cory Daniel</td>
 				<td>✔ Rumored</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>FL</td>
 				<td>Lautaro Bavaro</td>
 				<td>✔ Rumored</td>
@@ -191,7 +191,7 @@
 			</tr>
 		</tbody>
 		<tbody>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>N8</td>
 				<td>Jamason Fa'anana-Schultz</td>
 				<td>✔ Rumored</td>
@@ -211,7 +211,7 @@
 			</tr>
 		</tbody>
 		<tbody>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>SH</td>
 				<td>Ethan McVeigh</td>
 				<td>✔ Rumored</td>
@@ -249,7 +249,7 @@
 				<td>✔ Returning</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored returning">
 				<td>FH</td>
 				<td>Gradyn Bowd</td>
 				<td>✔ Rumored</td>
@@ -261,7 +261,7 @@
 				<td>⊝ No news</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored new">
 				<td>FH</td>
 				<td>Kieran Farmer</td>
 				<td>✔ Rumored</td>
@@ -281,7 +281,7 @@
 				<td>✔ Returning</td>
 				<td></td>
 			</tr>
-			<tr class="rumored">
+			<tr class="rumored leaving">
 				<td>CE</td>
 				<td>Willie Talataina</td>
 				<td>✘ Rumored</td>
@@ -368,6 +368,10 @@
 		.leaving td:nth-child(3) { background-color: #C59400; color: white}
 		.returning td:nth-child(3) { background-color: #004D40; color: white}
 		.new td:nth-child(3) { background-color: #1E88E5; color: white}
+		.rumored.leaving td:nth-child(3) { background-color: #e7d293; color: black }
+		.rumored.returning td:nth-child(3) { background-color: #85bab1; color: black }
+		.rumored.new td:nth-child(3),
+		.drafted td:nth-child(3) { background-color: #b0daff; color: black }
 		/*.no-news td:nth-child(3):before { content: "29D"; margin-right: .2em; }
 		.leaving td:nth-child(3):before { content: "718"; margin-right: .2em; }
 		.returning td:nth-child(3):before { content: "714"; margin-right: .2em; }
