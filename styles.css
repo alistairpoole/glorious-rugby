@@ -318,6 +318,14 @@ ol.two-column {
     column-gap: 2em;
     column-width: 9em;
 }
+.box {
+	padding:  1em;
+	margin: 1em 0;
+	border: 1px solid black;
+
+    > *:first-child { margin-top: 0 }
+    > *:last-child { margin-bottom: 0 }
+}
 
 body > footer {
 	width: 100%;
