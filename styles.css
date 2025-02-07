@@ -326,6 +326,35 @@ ol.two-column {
     > *:first-child { margin-top: 0 }
     > *:last-child { margin-bottom: 0 }
 }
+table.table {
+    width: 100%;
+    border-spacing: 0;
+    border: 2px solid #aaa;
+
+    td, th {
+        padding: .5em;
+        text-align: left;
+    }
+    tbody {
+        tr > * {
+            border-top: 1px solid #ccc;
+        }
+        tr:first-child > * {
+            border-top: 2px solid #aaa;
+        }
+        th[scope="row"] {
+            border-right: 2px solid #ccc;
+        }
+        th[scope="row"]:has(+ th[scope="row"]) {
+            border-right: none;
+        }
+    }
+}
+figure {
+    max-width: 100%;
+    overflow: auto;
+    margin: 1em 0;
+}
 
 body > footer {
 	width: 100%;
