@@ -6,8 +6,15 @@
     <atom:link href="https://gloriousrugby.com/rss" rel="self" type="application/rss+xml" />
     <description>The Old Glory DC fan news site</description>
     <language>en-us</language>
-    <pubDate>Fri, 14 Feb 2025 10:18:00 EST</pubDate>
+    <pubDate>Thu, 06 Mar 2025 14:10:00 EST</pubDate>
 
+      <item>
+        <title>Facing the Headwind</title>
+        <link>https://gloriousrugby.com/article/facing-the-headwind</link>
+        <pubDate>Thu, 06 Mar 2025 12:00:00 EST</pubDate>
+        <dc:creator>Jack Foster</dc:creator>
+        <guid>https://gloriousrugby.com/article/facing-the-headwind</guid>
+      </item>
       <item>
         <title>Solving Invisible Problems</title>
         <link>https://gloriousrugby.com/article/solving-invisible-problems</link>
