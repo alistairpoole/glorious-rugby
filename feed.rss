@@ -6,8 +6,15 @@
     <atom:link href="https://gloriousrugby.com/rss" rel="self" type="application/rss+xml" />
     <description>The Old Glory DC fan news site</description>
     <language>en-us</language>
-    <pubDate>Thu, 06 Mar 2025 14:10:00 EST</pubDate>
+    <pubDate>Tue, 18 Mar 2025 18:13:00 EST</pubDate>
 
+      <item>
+        <title>The Magic Runs Out</title>
+        <link>https://gloriousrugby.com/article/the-magic-runs-out</link>
+        <pubDate>Tue, 18 Mar 2025 18:00:00 EST</pubDate>
+        <dc:creator>Jack Foster</dc:creator>
+        <guid>https://gloriousrugby.com/article/the-magic-runs-out</guid>
+      </item>
       <item>
         <title>Facing the Headwind</title>
         <link>https://gloriousrugby.com/article/facing-the-headwind</link>
