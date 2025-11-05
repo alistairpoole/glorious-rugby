@@ -161,6 +161,12 @@
 			<td><abbr title='Domestic'>D</abbr></td>
 			<td>No news</td>
 		</tr>
+		<tr class='new'>
+			<td>LO</td>
+			<td><a href='old-glory-adds-young-american-lock-rick-rose'>Rick Rose</a></td>
+			<td><abbr title='Domestic'>D</abbr></td>
+			<td>✔ New</td>
+		</tr>
 	</tbody>
 	<tbody>	
 		<tr class='unknown'>
@@ -450,7 +456,7 @@
 		<span class="orange">Leaving</span>
 	</div>
 </figure>
-<figure class="chart stacked-bar">
+<figure class="chart stacked-bar circle-bars">
 	<h3>OGDC 2024 player count by position</h3>
 	<div class="y-axis">
 		<span>Loosehead</span>
@@ -505,7 +511,7 @@
 				<div class='bar orange' style='--val: 1'></div>
 				<div class='bar light-grey' style='--val: 3'></div>
 				<div class='bar green' style='--val: 1'></div>
-				<div class='bar blue' style='--val: 0'></div>
+				<div class='bar blue' style='--val: 1'></div>
 				<div class='bar light-blue' style='--val: 0'></div>
 			</div>
 			<div class="bar-set">	
@@ -576,6 +582,101 @@
 		<span class="light-blue">Drafted</span>
 	</div>
 </figure>
+<style>
+	.stacked-bar.circle-bars,
+	.stacked-bar.square-bars {
+		grid-template-columns: auto minmax(0, 1fr);
+		
+		.chart-area {
+			aspect-ratio: calc(var(--max) - var(--min)) / var(--bar-set-count);
+		}
+		.y-axis {
+			min-height: 100%;
+			span {
+				flex-grow: 1;
+			}
+		}
+		.bars {
+			container-type: inline-size;
+			container-name: bars;
+			min-height: calc(var(--bar-set-count) / (var(--max) - var(--min)));
+		}
+		.bar-set {
+			height: calc(100cqw / (var(--max) - var(--min)));
+		}
+		.bar {
+			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cellipse style='' cx='5' cy='5' rx='4' ry='4'%3E%3C/ellipse%3E%3C/svg%3E");
+			mask-repeat: repeat;
+			mask-size: contain;
+			mask-position: top left;
+		}
+	}
+	:has(> *:nth-child(1)) { --children-count: 1 }
+	:has(> *:nth-child(2)) { --children-count: 2 }
+	:has(> *:nth-child(3)) { --children-count: 3 }
+	:has(> *:nth-child(4)) { --children-count: 4 }
+	:has(> *:nth-child(5)) { --children-count: 5 }
+	:has(> *:nth-child(6)) { --children-count: 6 }
+	:has(> *:nth-child(7)) { --children-count: 7 }
+	:has(> *:nth-child(8)) { --children-count: 8 }
+	:has(> *:nth-child(9)) { --children-count: 9 }
+	:has(> *:nth-child(10)) { --children-count: 10 }
+	:has(> *:nth-child(11)) { --children-count: 11 }
+	:has(> *:nth-child(12)) { --children-count: 12 }
+	:has(> *:nth-child(13)) { --children-count: 13 }
+	:has(> *:nth-child(14)) { --children-count: 14 }
+	:has(> *:nth-child(15)) { --children-count: 15 }
+	:has(> *:nth-child(16)) { --children-count: 16 }
+	:has(> *:nth-child(17)) { --children-count: 17 }
+	:has(> *:nth-child(18)) { --children-count: 18 }
+	:has(> *:nth-child(19)) { --children-count: 19 }
+	:has(> *:nth-child(20)) { --children-count: 20 }
+	:has(> *:nth-child(21)) { --children-count: 21 }
+	:has(> *:nth-child(22)) { --children-count: 22 }
+	:has(> *:nth-child(23)) { --children-count: 23 }
+	:has(> *:nth-child(24)) { --children-count: 24 }
+	:has(> *:nth-child(25)) { --children-count: 25 }
+	:has(> *:nth-child(26)) { --children-count: 26 }
+	:has(> *:nth-child(27)) { --children-count: 27 }
+	:has(> *:nth-child(28)) { --children-count: 28 }
+	:has(> *:nth-child(29)) { --children-count: 29 }
+	:has(> *:nth-child(30)) { --children-count: 30 }
+	.chart-area:has(.bar-set:nth-child(1)) { --bar-set-count: 1 }
+	.chart-area:has(.bar-set:nth-child(2)) { --bar-set-count: 2 }
+	.chart-area:has(.bar-set:nth-child(3)) { --bar-set-count: 3 }
+	.chart-area:has(.bar-set:nth-child(4)) { --bar-set-count: 4 }
+	.chart-area:has(.bar-set:nth-child(5)) { --bar-set-count: 5 }
+	.chart-area:has(.bar-set:nth-child(6)) { --bar-set-count: 6 }
+	.chart-area:has(.bar-set:nth-child(7)) { --bar-set-count: 7 }
+	.chart-area:has(.bar-set:nth-child(8)) { --bar-set-count: 8 }
+	.chart-area:has(.bar-set:nth-child(9)) { --bar-set-count: 9 }
+	.chart-area:has(.bar-set:nth-child(10)) { --bar-set-count: 10 }
+	.chart-area:has(.bar-set:nth-child(11)) { --bar-set-count: 11 }
+	.chart-area:has(.bar-set:nth-child(12)) { --bar-set-count: 12 }
+	.chart-area:has(.bar-set:nth-child(13)) { --bar-set-count: 13 }
+	.chart-area:has(.bar-set:nth-child(14)) { --bar-set-count: 14 }
+	.chart-area:has(.bar-set:nth-child(15)) { --bar-set-count: 15 }
+	.chart-area:has(.bar-set:nth-child(16)) { --bar-set-count: 16 }
+	.chart-area:has(.bar-set:nth-child(17)) { --bar-set-count: 17 }
+	.chart-area:has(.bar-set:nth-child(18)) { --bar-set-count: 18 }
+	.chart-area:has(.bar-set:nth-child(19)) { --bar-set-count: 19 }
+	.chart-area:has(.bar-set:nth-child(20)) { --bar-set-count: 20 }
+	.chart-area:has(.bar-set:nth-child(21)) { --bar-set-count: 21 }
+	.chart-area:has(.bar-set:nth-child(22)) { --bar-set-count: 22 }
+	.chart-area:has(.bar-set:nth-child(23)) { --bar-set-count: 23 }
+	.chart-area:has(.bar-set:nth-child(24)) { --bar-set-count: 24 }
+	.chart-area:has(.bar-set:nth-child(25)) { --bar-set-count: 25 }
+	.chart-area:has(.bar-set:nth-child(26)) { --bar-set-count: 26 }
+	.chart-area:has(.bar-set:nth-child(27)) { --bar-set-count: 27 }
+	.chart-area:has(.bar-set:nth-child(28)) { --bar-set-count: 28 }
+	.chart-area:has(.bar-set:nth-child(29)) { --bar-set-count: 29 }
+	.chart-area:has(.bar-set:nth-child(30)) { --bar-set-count: 30 }
+	.stacked-bar.square-bars {
+		.bar {
+			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Crect x='1' y='1' width='8' height='8' style=''%3E%3C/rect%3E%3C/svg%3E");
+		}
+	}
+</style>
 
 		</main>
 		<footer>
