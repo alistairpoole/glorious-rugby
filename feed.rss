@@ -6,8 +6,15 @@
     <atom:link href="https://gloriousrugby.com/rss" rel="self" type="application/rss+xml" />
     <description>The Old Glory DC fan news site</description>
     <language>en-us</language>
-    <pubDate>Mon, 10 Nov 2025 10:36:00 EST</pubDate>
+    <pubDate>Mon, 10 Nov 2025 18:08:00 EST</pubDate>
 
+      <item>
+        <title>Old Glory DC Makes GMU Their Home Pitch for 2026</title>
+        <link>https://gloriousrugby.com/article/old-glory-dc-makes-gmu-their-home-pitch-for-2026</link>
+        <pubDate>Mon, 10 Nov 2025 18:00:00 EST</pubDate>
+        <dc:creator>Alistair Kirsch-Poole</dc:creator>
+        <guid>https://gloriousrugby.com/article/old-glory-dc-makes-gmu-their-home-pitch-for-2026</guid>
+      </item>
       <item>
         <title>Old Glory Picks up Young Flanker Aidan King</title>
         <link>https://gloriousrugby.com/article/old-glory-picks-up-young-flanker-aidan-king</link>
@@ -296,18 +303,18 @@
         <guid>https://gloriousrugby.com/article/2025-player-signing-tracker</guid>
       </item>
       <item>
-        <title>Quentin Newcomer Re-Signed for 2025</title>
-        <link>https://gloriousrugby.com/article/quentin-newcomer-re-signed-for-2025</link>
-        <pubDate>Sun, 01 Dec 2024 15:00:00 EST</pubDate>
-        <dc:creator>Alistair Kirsch-Poole</dc:creator>
-        <guid>https://gloriousrugby.com/article/quentin-newcomer-re-signed-for-2025</guid>
-      </item>
-      <item>
         <title>Rob Harley Re-Signed for 2025</title>
         <link>https://gloriousrugby.com/article/rob-harley-re-signed-for-2025</link>
         <pubDate>Sun, 01 Dec 2024 15:00:00 EST</pubDate>
         <dc:creator>Alistair Kirsch-Poole</dc:creator>
         <guid>https://gloriousrugby.com/article/rob-harley-re-signed-for-2025</guid>
+      </item>
+      <item>
+        <title>Quentin Newcomer Re-Signed for 2025</title>
+        <link>https://gloriousrugby.com/article/quentin-newcomer-re-signed-for-2025</link>
+        <pubDate>Sun, 01 Dec 2024 15:00:00 EST</pubDate>
+        <dc:creator>Alistair Kirsch-Poole</dc:creator>
+        <guid>https://gloriousrugby.com/article/quentin-newcomer-re-signed-for-2025</guid>
       </item>
       <item>
         <title>Old Glory DC outlasts Chicago 22-21 in massive defensive effort</title>
