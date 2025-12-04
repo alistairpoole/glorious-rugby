@@ -6,10 +6,17 @@
     <atom:link href="https://gloriousrugby.com/rss" rel="self" type="application/rss+xml" />
     <description>The Old Glory DC fan news site</description>
     <language>en-us</language>
-    <pubDate>Wed, 03 Dec 2025 11:14:00 EST</pubDate>
+    <pubDate>Thu, 04 Dec 2025 16:35:00 EST</pubDate>
 
       <item>
-        <title>KoiKoi Nelligan re-signs with OGDC for 2026</title>
+        <title>Bill Whiteside Re-Signs for 2026 Season</title>
+        <link>https://gloriousrugby.com/article/bill-whiteside-re-signs-for-2026-season</link>
+        <pubDate>Thu, 04 Dec 2025 16:30:00 EST</pubDate>
+        <dc:creator>Alistair Kirsch-Poole</dc:creator>
+        <guid>https://gloriousrugby.com/article/bill-whiteside-re-signs-for-2026-season</guid>
+      </item>
+      <item>
+        <title>KoiKoi Nelligan Re-Signs with OGDC for 2026</title>
         <link>https://gloriousrugby.com/article/koikoi-nelligan-re-signs-with-ogdc-for-2026</link>
         <pubDate>Wed, 03 Dec 2025 11:00:00 EST</pubDate>
         <dc:creator>Alistair Kirsch-Poole</dc:creator>
