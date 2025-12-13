@@ -6,8 +6,15 @@
     <atom:link href="https://gloriousrugby.com/rss" rel="self" type="application/rss+xml" />
     <description>The Old Glory DC fan news site</description>
     <language>en-us</language>
-    <pubDate>Wed, 10 Dec 2025 15:01:00 EST</pubDate>
+    <pubDate>Fri, 12 Dec 2025 19:30:00 EST</pubDate>
 
+      <item>
+        <title>John Rizzo Returns for Fifth Season with OGDC </title>
+        <link>https://gloriousrugby.com/article/john-rizzo-returns-for-fifth-season-with-ogdc</link>
+        <pubDate>Fri, 12 Dec 2025 16:30:00 EST</pubDate>
+        <dc:creator>Alistair Kirsch-Poole</dc:creator>
+        <guid>https://gloriousrugby.com/article/john-rizzo-returns-for-fifth-season-with-ogdc</guid>
+      </item>
       <item>
         <title>Owen Sheehy Re-Signed by OGDC for 2026</title>
         <link>https://gloriousrugby.com/article/owen-sheehy-re-signed-by-ogdc-for-2026</link>
