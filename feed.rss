@@ -6,8 +6,22 @@
     <atom:link href="https://gloriousrugby.com/rss" rel="self" type="application/rss+xml" />
     <description>The Old Glory DC fan news site</description>
     <language>en-us</language>
-    <pubDate>Fri, 19 Jun 2026 13:38:00 EST</pubDate>
+    <pubDate>Sat, 18 Jul 2026 16:17:00 EST</pubDate>
 
+      <item>
+        <title>Old Glory DC 2027 Player Signing Tracker</title>
+        <link>https://gloriousrugby.com/article/2027-player-signing-tracker</link>
+        <pubDate>Sat, 18 Jul 2026 12:00:00 EST</pubDate>
+        <dc:creator>Alistair Kirsch-Poole</dc:creator>
+        <guid>https://gloriousrugby.com/article/2027-player-signing-tracker</guid>
+      </item>
+      <item>
+        <title>Players Leaving the Team in 2027</title>
+        <link>https://gloriousrugby.com/article/players-leaving-the-team-in-2027</link>
+        <pubDate>Sat, 18 Jul 2026 11:00:00 EST</pubDate>
+        <dc:creator>Alistair Kirsch-Poole</dc:creator>
+        <guid>https://gloriousrugby.com/article/players-leaving-the-team-in-2027</guid>
+      </item>
       <item>
         <title>At the Crossroads: The Case For and Against Simon Cross</title>
         <link>https://gloriousrugby.com/article/crossroads-the-case-for-against-simon-cross</link>
